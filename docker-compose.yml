@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+    socket_server:
+        build: .
+        image: spockwall/defi-hw3:tagname
+        container_name: socket_server
+        command: python3 socket_server.py
+        privileged: true
+        restart: on-failure
+        ports:
+            - "0.0.0.0:80:3001"
+        volumes:
+            - ./address:/app/address
